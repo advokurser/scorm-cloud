@@ -1,9 +1,10 @@
 module ScormCloud
 	class Base
 
-		def initialize(appid, secret)
+		def initialize(appid, secret, ssl)
 			@appid = appid
 			@secret = secret
+			@ssl = ssl.downcase == "true" ? true : false
 		end
 
 		def call(method, params = {})
@@ -51,7 +52,7 @@ module ScormCloud
 					join
 
 			sig = Digest::MD5.hexdigest(raw)
-			"http://cloud.scorm.com/api?#{html_params}&sig=#{sig}"
+			"http#{ssl}://cloud.scorm.com/api?#{html_params}&sig=#{sig}"
 		end
 
 
@@ -61,6 +62,10 @@ module ScormCloud
 			code = err.attributes["code"]
 			msg = err.attributes["msg"]
 			"Error In Scorm Cloud: Error=#{code} Message=#{msg}"
+		end
+
+		def ssl
+			@ssl ? "s" : ""
 		end
 
 	end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Rustici Web Service API" do
 
-	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret).dispatch do
+	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret,$scorm_cloud_ssl).dispatch do
 
 		it { should respond_to(:get_destination_list) }
 		it { should respond_to(:get_destination_info) }

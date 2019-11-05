@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Rustici Web Service API" do
 
-	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret).registration do
+	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret,$scorm_cloud_ssl).registration do
 
 		# interface
 		it { should respond_to(:create_registration).with(5).arguments }

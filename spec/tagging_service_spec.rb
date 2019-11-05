@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Rustici Web Service API" do
 
-	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret).tagging do
+	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret,$scorm_cloud_ssl).tagging do
 		it { should respond_to(:get_course_tags) }
 		it { should respond_to(:set_course_tags) }
 		it { should respond_to(:add_course_tag) }

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Rustici Web Service API" do
 
-	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret).debug do
+	describe ScormCloud::ScormCloud.new($scorm_cloud_appid,$scorm_cloud_secret,$scorm_cloud_ssl).debug do
 
 		# interface
 		it { should respond_to(:ping).with(0).arguments }

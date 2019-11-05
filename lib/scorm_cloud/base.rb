@@ -3,9 +3,10 @@ module ScormCloud
 
 		attr_reader :appid
 
-		def initialize(appid, secret)
+		def initialize(appid, secret, ssl)
 			@appid = appid
 			@secret = secret
+			@ssl = ssl.downcase == "true" ? true : false
 		end
 
 		def call(method, params = {})
@@ -57,7 +58,7 @@ module ScormCloud
 					join
 
 			sig = Digest::MD5.hexdigest(raw)
-			"http://cloud.scorm.com/api?#{html_params}&sig=#{sig}"
+			"http#{ssl}://cloud.scorm.com/api?#{html_params}&sig=#{sig}"
 		end
 
 
@@ -105,6 +106,8 @@ module ScormCloud
 			end
 		end
 
-
+		def ssl
+			@ssl ? "s" : ""
+		end
 	end
 end
