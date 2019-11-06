@@ -3,7 +3,7 @@ module ScormCloud
 
 		attr_reader :appid
 
-		def initialize(appid, secret, ssl)
+		def initialize(appid, secret, ssl: "FALSE")
 			@appid = appid
 			@secret = secret
 			@ssl = ssl.downcase == "true" ? true : false
