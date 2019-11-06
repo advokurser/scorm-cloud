@@ -1,7 +1,7 @@
 module ScormCloud
 	class Base
 
-		def initialize(appid, secret, ssl: "FALSE")
+		def initialize(appid, secret, ssl = "FALSE")
 			@appid = appid
 			@secret = secret
 			@ssl = ssl.downcase == "true" ? true : false
