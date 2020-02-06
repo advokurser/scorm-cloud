@@ -1,3 +1,5 @@
+require 'rails'
+
 require 'rexml/document'
 require 'digest/md5'
 require 'net/http'
